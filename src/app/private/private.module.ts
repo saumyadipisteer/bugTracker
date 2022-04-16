@@ -11,7 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 const primeng = [
   StepsModule,
@@ -32,7 +32,6 @@ const primeng = [
   imports: [
     CommonModule,
     PrivateRoutingModule,
-    BrowserAnimationsModule,
     ...primeng,
   ],
 })

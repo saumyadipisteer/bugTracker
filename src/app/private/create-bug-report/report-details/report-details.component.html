@@ -1,19 +1,24 @@
-<p-card [style]="{width:'80%', margin:'0 auto', padding:'10px 20px'}">
-    <ng-template pTemplate="header">
-        <h2 class="form__heading-text">
-            Bug description
-        </h2>
-    </ng-template>
-    <ng-template pTemplate="content">
-        <form class="details__form">
-            <div class="form__control">
-                <label for="title">Title <span class="invalid">*</span></label>
-                <input type="text" pInputText>
-            </div>
-            <div class="form__control">
-                <label for="title">Title <span class="invalid">*</span></label>
-                <input type="text" pInputText>
-            </div>
-        </form>
-    </ng-template>
+<p-card
+  [style]="{
+    width: '80%',
+    margin: '0 auto',
+    padding: '10px 20px',
+    minWidth: '360px'
+  }"
+>
+  <ng-template pTemplate="header">
+    <h2 class="form__heading-text">Bug description</h2>
+  </ng-template>
+  <ng-template pTemplate="content">
+    <form class="details__form">
+      <div class="form__control">
+        <label for="title">Title <span class="invalid">*</span></label>
+        <input type="text" pInputText />
+      </div>
+      <div class="form__control">
+        <label for="title">Title <span class="invalid">*</span></label>
+        <input type="text" pInputText />
+      </div>
+    </form>
+  </ng-template>
 </p-card>
