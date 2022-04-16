@@ -24,6 +24,11 @@ html {
   background-color: $default-background-color;
 }
 
+.invalid{
+  color: red;
+  font-weight: 600;
+}
+
 .invalidMessage{
   text-align: left;
   width: 100%;

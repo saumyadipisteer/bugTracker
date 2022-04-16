@@ -1,7 +1,24 @@
-.form__heading{
-    &-text{
-        font-weight: 500;
-        
+.form__heading {
+  &-text {
+    font-weight: 500;
+    //background-color: rgb(149, 211, 250);
+  }
+}
 
+.details__form{
+    //background-color: antiquewhite;
+}
+
+.form__control{
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+
+    & > input[type="text"], & > input[type="number"]{
+        margin: 10px 0;
+    }
+
+    & > label {
+        margin: 5px 0;
     }
 }
