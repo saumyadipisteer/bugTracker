@@ -45,6 +45,11 @@ const routes: Routes = [
     canActivate: [PublicGuard],
   },
   {
+    path: 'bugReport',
+    loadChildren: () =>
+      import('./private/private.module').then((m) => m.PrivateModule),
+  },
+  {
     path: 'bugList',
     loadChildren: () =>
       import('./shared/shared.module').then((m) => m.SharedModule),
