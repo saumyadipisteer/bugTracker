@@ -3,12 +3,11 @@
     flex-direction: column;
     gap: 10px;
     height: 100vh;
-    &__navbar{
-    }
+   
     &__content{
         height: 90%;
         position: relative;
         top: 10%;
-        padding: 0 45px;
+        margin: 0 45px;
     }
 }
