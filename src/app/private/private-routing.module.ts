@@ -5,7 +5,7 @@ import { CreateBugReportComponent } from './create-bug-report/create-bug-report.
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'details',
     pathMatch: 'full',
   },
   {
