@@ -5,20 +5,23 @@
   }
 }
 
-.details__form{
-    //background-color: antiquewhite;
+.details__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.form__control{
-    display: flex;
-    flex-direction: column;
-    background-color: aliceblue;
+.form__control {
+  display: flex;
+  flex-direction: column;
+  //background-color: aliceblue;
 
-    & > input[type="text"], & > input[type="number"]{
-        margin: 10px 0;
-    }
+  & > input[type="text"],
+  & > input[type="number"] {
+    margin: 10px 0;
+  }
 
-    & > label {
-        margin: 5px 0;
-    }
+  & > label {
+    margin: 5px 0;
+  }
 }
