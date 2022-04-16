@@ -9,8 +9,9 @@ import { StepsModule } from 'primeng/steps';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { CardModule } from 'primeng/card';
 
-const primeng = [StepsModule, ButtonModule, InputTextModule, InputNumberModule];
+const primeng = [StepsModule, ButtonModule, InputTextModule, InputNumberModule, CardModule];
 
 @NgModule({
   declarations: [
