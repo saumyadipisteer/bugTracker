@@ -45,7 +45,7 @@ const routes: Routes = [
     canActivate: [PublicGuard],
   },
   {
-    path: 'bugReport',
+    path: 'reportBug',
     loadChildren: () =>
       import('./private/private.module').then((m) => m.PrivateModule),
   },
