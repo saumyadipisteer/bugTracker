@@ -1,0 +1,31 @@
+{
+  "home": {
+    "route": {
+      "name": "",
+      "label":"Home",
+      "quaryParam": ""
+    }
+
+  },
+  "signIn": {
+    "route": {
+      "name": "signIn",
+      "label":"Sign In",
+      "quaryParam": ""
+    }
+  },
+  "singup": {
+    "route": {
+      "name": "singUp",
+      "label":"Sign Up",
+      "quaryParam": ""
+    }
+  },
+  "recipes": {
+    "route": {
+      "name": "recipes",
+      "label":"Recipes!",
+      "quaryParam": ""
+    }
+  }
+}

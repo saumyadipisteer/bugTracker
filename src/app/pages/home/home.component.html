@@ -1,0 +1,12 @@
+<!-- <counter></counter> -->
+<div class="home__content">
+  <div class="home__title">
+    <h1 class="home__title-text" >Bug tracker</h1>
+  </div>
+
+  <a
+    [routerLink]="(isLoggedIn$ | async) ? 'reportBug' : 'user/signin'"
+    class="home__content-create"
+    >Report a bug</a
+  >
+</div>

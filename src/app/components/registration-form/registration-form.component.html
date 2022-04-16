@@ -1,0 +1,100 @@
+<div class="recipe__login">
+  <form [formGroup]="fg" class="recipe__login-form" (ngSubmit)="onSubmit()">
+    <div class="recipe__login-heading">
+      <h1 class="recipe__login-heading--text">
+        {{ formLabel }}<span class="dot-for-style">.</span>
+      </h1>
+    </div>
+    <div class="form__group">
+      <label for="username"
+        >{{ fields["username"]?.label }}
+        <span *ngIf="fields['username']?.required" style="color: red"
+          >*</span
+        ></label
+      >
+      <input
+        type="text"
+        name=""
+        id="username"
+        formControlName="username"
+        pInputText
+      />
+      <div class="invalidMessage" *ngIf="isRequired('username')">
+        Field is required!
+      </div>
+    </div>
+    <div class="form__group">
+      <label for="password"
+        >{{ fields["password"]?.label }}
+        <span *ngIf="fields['password']?.required" style="color: red"
+          >*</span
+        ></label
+      >
+      <input
+        type="password"
+        name=""
+        id="password"
+        formControlName="password"
+        pInputText
+      />
+      <div class="invalidMessage" *ngIf="isRequired('password')">
+        Field is required!
+      </div>
+      <div
+        class="password-formalitis invalidMessage"
+        *ngIf="
+          fg.controls['password'].invalid && fg.controls['password'].dirty
+        "
+      >
+        <div *ngIf="hasError('oneCapitalRequired')">
+          * Password must contain 1 Capital case alphabet.
+        </div>
+        <div *ngIf="hasError('oneSymbolRequired')">
+          * Password must contain 1 Symbol.
+        </div>
+        <div *ngIf="hasError('oneNumericRequired')">
+          * Password must contain 1 Number.
+        </div>
+        <div *ngIf="hasError('passLength')">
+          * Password must have minimum 8 characters.
+        </div>
+      </div>
+    </div>
+    <div class="form__group">
+      <label for="confirmPassword"
+        >{{ fields["confirmPassword"]?.label }}
+        <span *ngIf="fields['confirmPassword']?.required" style="color: red"
+          >*</span
+        ></label
+      >
+      <input
+        type="password"
+        name=""
+        id="confirmPassword"
+        formControlName="confirmPassword"
+        pInputText
+      />
+      <div class="invalidMessage" *ngIf="isRequired('confirmPassword')">
+        Field is required!
+      </div>
+      <div
+        class="invalidMessage"
+        *ngIf="
+          fg.controls['password'].value !==
+            fg.controls['confirmPassword'].value &&
+          fg.controls['confirmPassword'].touched
+        "
+      >
+        Password not matching.
+      </div>
+    </div>
+    <div class="form__group">
+      <button
+        type="submit"
+        [label]="formLabel"
+        class="p-button-info recipe__login-button"
+        pButton
+      ></button>
+    </div>
+  </form>
+</div>

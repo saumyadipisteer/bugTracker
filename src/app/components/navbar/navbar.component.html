@@ -1,0 +1,53 @@
+<nav class="recipe__navbar">
+  <ul class="recipe__navbar-menu">
+    <div class="left__menu">
+      <li class="recipe__navbar-menu--item">
+        <a
+          [routerLink]="'/'"
+          class="recipe__navbar-menu--link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+      </li>
+      <li class="recipe__navbar-menu--item">
+        <a
+          [routerLink]="'bugList'"
+          class="recipe__navbar-menu--link"
+          routerLinkActive="active"
+          >Bug List</a
+        >
+      </li>
+    </div>
+    <ng-container *ngIf="!(isLoggedIn$ | async); else showlogout">
+      <div class="right__menu">
+        <li class="recipe__navbar-menu--item">
+          <a
+            [routerLink]="'/user/signin'"
+            class="recipe__navbar-menu--link"
+            routerLinkActive="active"
+            >Sign In</a
+          >
+        </li>
+        <li class="recipe__navbar-menu--item">
+          <a
+            [routerLink]="'/user/signup'"
+            class="recipe__navbar-menu--link"
+            routerLinkActive="active"
+            >Sign Up</a
+          >
+        </li>
+      </div>
+    </ng-container>
+  </ul>
+</nav>
+
+<ng-template #showlogout>
+  <div class="right__menu">
+    <li class="recipe__navbar-menu--item">
+      <a href="" class="recipe__navbar-menu--link" (click)="userLoggedOut()"
+        >Log out</a
+      >
+    </li>
+  </div>
+</ng-template>

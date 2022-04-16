@@ -1,0 +1,52 @@
+<div class="recipe__login">
+  <form [formGroup]="fg" class="recipe__login-form" (ngSubmit)="onSubmit()">
+    <div class="recipe__login-heading">
+      <h1 class="recipe__login-heading--text">Sign In<span class="dot-for-style">.</span></h1>
+    </div>
+    <div class="form__group">
+      <label for="username"
+        >{{ fields["username"]?.label }}
+        <span *ngIf="fields['username']?.required" style="color: red"
+          >*</span
+        ></label
+      >
+      <input
+        type="text"
+        name=""
+        id="username"
+        formControlName="username"
+        pInputText
+      />
+      <div class="invalidMessage" *ngIf="isRequired('username')">
+        Field is required!
+      </div>
+    </div>
+    <div class="form__group">
+      <label for="password"
+        >{{ fields["password"]?.label }}
+        <span *ngIf="fields['password']?.required" style="color: red"
+          >*</span
+        ></label
+      >
+      <input
+        type="password"
+        name=""
+        id="password"
+        formControlName="password"
+        pInputText
+      />
+      <div class="invalidMessage" *ngIf="isRequired('password')">
+        Field is required!
+      </div>
+    </div>
+    <div class="form__group">
+      <button
+        type="submit"
+        label="Login"
+        class="p-button-info recipe__login-button"
+        pButton
+      ></button>
+    </div>
+  </form>
+</div>
+<p-toast></p-toast>

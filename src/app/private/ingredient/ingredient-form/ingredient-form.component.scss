@@ -1,0 +1,44 @@
+.ingredient {
+    
+  &__form {
+    width: 100%;
+    height: 95%;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 25px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+
+    &-title {
+      text-align: center;
+    }
+  }
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  width: 122%;
+  gap: 5px;
+
+  &s {
+    display: flex;
+    flex-direction: row;
+    
+    gap: 10px;
+  }
+}
+
+p-inputnumber {
+  height: 100%;
+}
+
+p-dropdown {
+  width: 55px;
+}
+
+.p-dropdown.p-dropdown-clearable .p-dropdown-label {
+  padding-right: 2.75rem !important;
+}

@@ -1,0 +1,76 @@
+<div
+  class="ingredient__list"
+  [ngStyle]="{ width: currentWidth, height: currentHeight }"
+>
+  <div class="ingredient-button">
+    <button
+      pButton
+      label="Add"
+      class="p-button-success"
+      icon="pi pi-plus"
+      (click)="addIngredientForm()"
+    ></button>
+  </div>
+  <div class="table-container">
+    <p-table [value]="(ingredients$ | async)!" styleClass="p-datatable-striped">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Sr. No.</th>
+          <th>Ingredient Name</th>
+          <th>Units and Quantity</th>
+          <th *ngIf="listType !== 'view'">Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-ingredient let-rowIndex="rowIndex">
+        <tr>
+          <td>{{ rowIndex + 1 }}</td>
+          <td>{{ ingredient.name }}</td>
+          <td>{{ ingredient.quantity }} {{ ingredient.unit }}</td>
+          <td *ngIf="listType !== 'view'" class="action__btns">
+            <button
+              pButton
+              type="button"
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-warning p-button-text"
+              (click)="editable(ingredient, rowIndex)"
+            ></button>
+            <button
+              pButton
+              type="button"
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-danger p-button-text"
+              (click)="confirm(rowIndex)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <h4 class="emptyMessage__text">No data found</h4>
+      </ng-template>
+    </p-table>
+  </div>
+  <div class="ingredient-button last">
+    <button
+      pButton
+      label="Previous"
+      class="p-button-primary"
+      icon="pi pi-arrow-left"
+      iconPos="left"
+      (click)="changePage('details')"
+    ></button>
+    <button
+      pButton
+      label="Next"
+      class="p-button-primary"
+      icon="pi pi-arrow-right"
+      iconPos="right"
+      (click)="changePage('confirmation')"
+    ></button>
+  </div>
+</div>
+<p-confirmDialog
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"
+></p-confirmDialog>
+<p-toast></p-toast>

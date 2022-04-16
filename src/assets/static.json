@@ -1,0 +1,32 @@
+{
+    "users":[
+        {
+            "id": 1,
+            "author":"nobody",
+            "recipes":[
+                {
+                    "name":"Dum aloo",
+                    "url": "",
+                    "ingredients":[
+                        {
+                            "name": "Potato",
+                            "weight": 1,
+                            "unit":"kg"
+                        },
+                        {
+                            "name": "Salt",
+                            "weight": 2,
+                            "unit":"tablespoon"
+                        },
+                        {
+                            "name": "Corriander powder",
+                            "weight": 2,
+                            "unit":"tablespoon"
+                        }
+                    ]
+                }
+            ]
+
+        }
+    ]
+}

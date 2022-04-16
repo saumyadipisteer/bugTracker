@@ -1,0 +1,16 @@
+<div
+  class="ingredient"
+  [ngStyle]="{ width: '100%', height: '450px' }"
+>
+  <ingredient-form
+    [currentHeight]="currentHeight"
+    [currentWidth]="ingredientFormWidth"
+    [editableData]="editableData"
+  ></ingredient-form>
+  <ingredient-list
+    
+    (editableData)="getEditableData($event)"
+    [ingredients]="ingredients"
+    [listType]="listType"
+  ></ingredient-list>
+</div>

@@ -1,0 +1,38 @@
+.home {
+  &__title {
+    &-text {
+      color: #30475e;
+      text-align: center;
+      user-select: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15% auto;
+    &-create {
+      display: block;
+      text-decoration: none;
+      padding: 2vh 10px;
+      text-align: center;
+      border: 1px solid lighten(#30475e, 1);
+      border-radius: 6px;
+      margin: 10px 0;
+      transition: all 0.25s ease-in;
+      user-select: none;
+
+      &:visited {
+        color: #333;
+      }
+
+      &:focus,
+      &:hover {
+        box-shadow: inset 12.5em 0 0 0 #30475e; //-TODO: Dynamic shadow which matches width and height of the button
+        color: white;
+        border: 1px solid #30475e;
+      }
+    }
+  }
+}

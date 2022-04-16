@@ -1,0 +1,18 @@
+|-public (Module - not decided)
+|       |-user
+|       |      |-sign-in-form
+|       |      |_sign-up-form  
+|       |  
+|       |_recipeList (view only)
+|                   
+|
+|
+|_private (Module - not decided)
+        |-createRecipe (Module)
+        |        |-recipe-details
+        |        |-ingredient-list
+        |        |_confirmation
+        |
+        |_recipeList (Module)
+                  |-list with editibility buttons - for the creator only
+    
