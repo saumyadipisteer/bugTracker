@@ -10,6 +10,11 @@
   &-heading {
     background-color: blanchedalmond;
     flex-grow: .5;
+
+    &--text{
+      background-color: antiquewhite;
+      padding: 10px 20px;
+    }
   }
   &-layout {
     //background-color: antiquewhite;
