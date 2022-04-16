@@ -8,6 +8,7 @@ import { IngredientListComponent } from './ingredient/ingredient-list/ingredient
 import { IngredientFormComponent } from './ingredient/ingredient-form/ingredient-form.component';
 import { RecipeMessageComponent } from './recipe-message/recipe-message.component';
 import { CreateBugReportComponent } from './create-bug-report/create-bug-report.component';
+import { ReportDetailsComponent } from './create-bug-report/report-details/report-details.component';
 
 
 
@@ -20,6 +21,7 @@ import { CreateBugReportComponent } from './create-bug-report/create-bug-report.
     IngredientFormComponent,
     RecipeMessageComponent,
     CreateBugReportComponent,
+    ReportDetailsComponent,
   ],
   imports: [CommonModule, PrivateRoutingModule],
 })
