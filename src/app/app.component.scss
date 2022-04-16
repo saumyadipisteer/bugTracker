@@ -1,0 +1,13 @@
+.layout{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh;
+   
+    &__content{
+        height: 90%;
+        position: relative;
+        top: 10%;
+        margin: 0 45px;
+    }
+}
