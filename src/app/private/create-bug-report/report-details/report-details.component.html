@@ -12,7 +12,7 @@
   <ng-template pTemplate="content">
     <form class="details__form">
       <div class="form__control">
-        <label for="title">Title <span class="invalid">*</span></label>
+        <label for="title">Subject <span class="invalid">*</span></label>
         <input type="text" pInputText />
       </div>
       <div class="fomr__control-group">
@@ -23,7 +23,13 @@
             [style]="{ width: '280px' }"
           ></p-dropdown>
         </div>
-        
+        <div class="form__control">
+          <label for="title">Status<span class="invalid">*</span></label>
+          <p-dropdown
+            [options]="severityOptions"
+            [style]="{ width: '280px' }"
+          ></p-dropdown>
+        </div>
       </div>
     </form>
   </ng-template>
