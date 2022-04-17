@@ -111,6 +111,7 @@ export class ReportDetailsComponent
    */
   onSubmit(): void {
     this._generateData(this.fg.getRawValue());
+    
   }
 
   /**

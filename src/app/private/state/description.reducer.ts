@@ -15,7 +15,6 @@ export const descriptionReducer = createReducer(
     return { ...state, subject: subject };
   }),
   on(descriptionAction, (state, { description }) => {
-    console.log(description)
     return { ...state, ...description };
   })
 );
