@@ -43,6 +43,14 @@ export class ReportDetailsComponent
   }
 
   ngAfterViewInit(): void {
+    this._updateSubjectStore();
+  }
+
+  /**
+   * @description on every key store or paste the store will get update
+   * @returns `void`
+   */
+  private _updateSubjectStore(): void {
     const inputField = this.subjectField?.nativeElement as HTMLInputElement;
     const keyUp$ = fromEvent<any>(inputField, 'keyup').pipe(
       map((event) => event.target.value),
