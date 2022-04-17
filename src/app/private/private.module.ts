@@ -10,8 +10,17 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CardModule } from 'primeng/card';
+import { DropdownModule } from 'primeng/dropdown';
 
-const primeng = [StepsModule, ButtonModule, InputTextModule, InputNumberModule, CardModule];
+
+const primeng = [
+  StepsModule,
+  ButtonModule,
+  InputTextModule,
+  InputNumberModule,
+  CardModule,
+  DropdownModule,
+];
 
 @NgModule({
   declarations: [
@@ -20,6 +29,10 @@ const primeng = [StepsModule, ButtonModule, InputTextModule, InputNumberModule, 
     CreateBugReportComponent,
     ReportDetailsComponent,
   ],
-  imports: [CommonModule, PrivateRoutingModule, ...primeng],
+  imports: [
+    CommonModule,
+    PrivateRoutingModule,
+    ...primeng,
+  ],
 })
 export class PrivateModule {}

@@ -1,0 +1,28 @@
+.form__heading {
+  &-text {
+    font-weight: 500;
+    //background-color: rgb(149, 211, 250);
+    margin: 0 25px;
+  }
+}
+
+.details__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form__control {
+  display: flex;
+  flex-direction: column;
+  //background-color: aliceblue;
+
+  & > input[type="text"],
+  & > input[type="number"] {
+    margin: 10px 0;
+  }
+
+  & > label {
+    margin: 5px 0;
+  }
+}
