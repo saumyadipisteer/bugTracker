@@ -13,6 +13,8 @@ import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { StoreModule } from '@ngrx/store';
+import { subjectReducer } from './state/description.reducer';
 
 const primeng = [
   StepsModule,
@@ -28,10 +30,14 @@ const primeng = [
 @NgModule({
   declarations: [
     PrivateComponent,
-
     CreateBugReportComponent,
     ReportDetailsComponent,
   ],
-  imports: [CommonModule, PrivateRoutingModule, ...primeng],
+  imports: [
+    CommonModule,
+    PrivateRoutingModule,
+    ...primeng,
+    StoreModule.forFeature('subject', subjectReducer),
+  ],
 })
 export class PrivateModule {}

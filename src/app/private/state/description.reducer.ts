@@ -12,7 +12,6 @@ export const initialBugDescriptionValue: Description = {
 export const subjectReducer = createReducer(
   initialBugDescriptionValue,
   on(subjectAction, (state, { subject }) => {
-    state.subject = subject;
-    return state;
+    return { ...state, subject: subject };
   })
 );
