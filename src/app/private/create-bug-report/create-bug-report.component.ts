@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateBugReportComponent implements OnInit {
   severityOptions: string[] = ['--Select--', 'Low', 'Medium', 'High']; //- TODO: must come from an API
-  statusOptions: string[] = ['--Select--', 'Open', 'TBD']; //- TODO: must come from an API
+  statusOptions: string[] = ['--Select--', 'Open', 'TBD']; //- TODO: More option for depending on role
   constructor() {}
 
   ngOnInit(): void {}
