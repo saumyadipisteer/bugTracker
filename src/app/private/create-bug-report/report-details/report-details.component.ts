@@ -1,5 +1,4 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
   ElementRef,
@@ -15,11 +14,11 @@ import {
   distinctUntilChanged,
   fromEvent,
   map,
-  startWith,
   Subscription,
 } from 'rxjs';
 import { Fields } from '../../interface/common';
-import { subjectAction } from '../../state/description.action';
+import { Description } from '../../interface/description';
+import { descriptionAction } from '../../state/description.action';
 import { descriptionSelector } from '../../state/description.selector';
 
 @Component({
@@ -34,7 +33,8 @@ export class ReportDetailsComponent
   @Input() statusOptions: string[];
   @Input() fields: Fields;
   @ViewChild('subject') subjectField: ElementRef;
-  private _subscription: Subscription;
+  @ViewChild('status') statusField: ElementRef;
+  private _subscription: Subscription = new Subscription();
 
   fg: FormGroup;
   constructor(private store: Store) {}
@@ -48,7 +48,7 @@ export class ReportDetailsComponent
 
   ngAfterViewInit(): void {
     this._updateSubjectStore();
-    
+    //this._updateDescriptionStore();
   }
 
   /**
@@ -63,10 +63,21 @@ export class ReportDetailsComponent
       distinctUntilChanged()
     );
 
-    keyUp$.subscribe((value) => {
-      let subject: string = value;
-      this.store.dispatch(subjectAction({ subject }));
-    });
+    this._subscription.add(
+      keyUp$.subscribe((value) => {
+        let description: Description = this.fg.getRawValue();
+        this.store.dispatch(descriptionAction({ description }));
+      })
+    );
+  }
+
+  /**
+   * @description on every key store or paste the store will get update
+   * @returns `void`
+   */
+  updateDescriptionStore(value: string): void {
+    let description: Description = this.fg.getRawValue();
+    this.store.dispatch(descriptionAction({ description }));
   }
 
   /**
@@ -97,6 +108,6 @@ export class ReportDetailsComponent
   }
 
   ngOnDestroy(): void {
-    // this._subscription.unsubscribe();
+    this._subscription.unsubscribe();
   }
 }

@@ -27,6 +27,7 @@
         <div class="form__control">
           <label for="title">Status<span class="invalid">*</span></label>
           <p-dropdown
+            (onChange)="updateDescriptionStore($event.value)"
             [options]="statusOptions"
             [style]="{ width: '280px' }"
             formControlName="status"
