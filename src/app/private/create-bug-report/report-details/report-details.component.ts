@@ -20,6 +20,7 @@ import {
 } from 'rxjs';
 import { Fields } from '../../interface/common';
 import { subjectAction } from '../../state/description.action';
+import { descriptionSelector } from '../../state/description.selector';
 
 @Component({
   selector: 'report-details',
@@ -40,10 +41,14 @@ export class ReportDetailsComponent
 
   ngOnInit(): void {
     this.fg = this.createForm();
+    this.store.select(descriptionSelector).subscribe((description) => {
+      this.fg.patchValue(description);
+    });
   }
 
   ngAfterViewInit(): void {
     this._updateSubjectStore();
+    
   }
 
   /**
@@ -54,7 +59,6 @@ export class ReportDetailsComponent
     const inputField = this.subjectField?.nativeElement as HTMLInputElement;
     const keyUp$ = fromEvent<any>(inputField, 'keyup').pipe(
       map((event) => event.target.value),
-      startWith(''),
       debounceTime(400),
       distinctUntilChanged()
     );
@@ -93,6 +97,6 @@ export class ReportDetailsComponent
   }
 
   ngOnDestroy(): void {
-    this._subscription.unsubscribe();
+    // this._subscription.unsubscribe();
   }
 }
