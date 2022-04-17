@@ -13,6 +13,9 @@ import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { StoreModule } from '@ngrx/store';
+import { descriptionReducer } from './state/description.reducer';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const primeng = [
   StepsModule,
@@ -28,10 +31,16 @@ const primeng = [
 @NgModule({
   declarations: [
     PrivateComponent,
-
     CreateBugReportComponent,
     ReportDetailsComponent,
   ],
-  imports: [CommonModule, PrivateRoutingModule, ...primeng],
+  imports: [
+    CommonModule,
+    PrivateRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ...primeng,
+    StoreModule.forFeature('description',descriptionReducer),
+  ],
 })
 export class PrivateModule {}

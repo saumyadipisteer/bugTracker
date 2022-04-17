@@ -10,10 +10,10 @@
     <h2 class="form__heading-text">Bug description</h2>
   </ng-template>
   <ng-template pTemplate="content">
-    <form class="details__form">
+    <form [formGroup]="fg" class="details__form" (ngSubmit)="onSubmit()">
       <div class="form__control">
         <label for="title">Subject <span class="invalid">*</span></label>
-        <input type="text" pInputText />
+        <input type="text" pInputText #subject formControlName="subject" />
       </div>
       <div class="form__control-group">
         <div class="form__control">
@@ -21,13 +21,16 @@
           <p-dropdown
             [options]="severityOptions"
             [style]="{ width: '280px' }"
+            formControlName="severity"
           ></p-dropdown>
         </div>
         <div class="form__control">
           <label for="title">Status<span class="invalid">*</span></label>
           <p-dropdown
+            (onChange)="updateDescriptionStore($event.value)"
             [options]="statusOptions"
             [style]="{ width: '280px' }"
+            formControlName="status"
           ></p-dropdown>
         </div>
       </div>
@@ -35,7 +38,7 @@
         <label for="title"
           >Describe the bug <span class="invalid">*</span></label
         >
-        <textarea pInputTextarea></textarea>
+        <textarea pInputTextarea formControlName="describeTheBug"></textarea>
       </div>
       <div class="form__control">
         <button type="submit" pButton label="Submit"></button>
