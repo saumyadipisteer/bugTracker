@@ -15,6 +15,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { StoreModule } from '@ngrx/store';
 import { subjectReducer } from './state/description.reducer';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const primeng = [
   StepsModule,
@@ -36,6 +37,8 @@ const primeng = [
   imports: [
     CommonModule,
     PrivateRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     ...primeng,
     StoreModule.forFeature('subject', subjectReducer),
   ],
