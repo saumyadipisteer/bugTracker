@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'report-details',
   templateUrl: './report-details.component.html',
-  styleUrls: ['./report-details.component.scss']
+  styleUrls: ['./report-details.component.scss'],
 })
 export class ReportDetailsComponent implements OnInit {
+  @Input() severityOptions: string[];
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

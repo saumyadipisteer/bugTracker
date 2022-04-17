@@ -15,9 +15,15 @@
         <label for="title">Title <span class="invalid">*</span></label>
         <input type="text" pInputText />
       </div>
-      <div class="form__control">
-        <label for="title">Title <span class="invalid">*</span></label>
-        <input type="text" pInputText />
+      <div class="fomr__control-group">
+        <div class="form__control">
+          <label for="title">Severity <span class="invalid">*</span></label>
+          <p-dropdown
+            [options]="severityOptions"
+            [style]="{ width: '280px' }"
+          ></p-dropdown>
+        </div>
+        
       </div>
     </form>
   </ng-template>
