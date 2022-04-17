@@ -7,29 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateBugReportComponent implements OnInit {
   field = {
-    subject: {
-      label: 'Subject',
-      field: 'subject',
-      required: true,
-      disabled: false,
-    },
-    severity: {
-      label: 'Severity',
-      field: 'severity',
-      required: true,
-      disabled: false,
-    },
-    status: {
-      label: 'Status',
-      field: 'severity',
-      required: true,
-      disabled: false,
-    },
-    describeTheBug: {
-      label: 'Describe the bug',
-      field: 'describeTheBug',
-      required: false,
-      disabled: false,
+    details: {
+      subject: {
+        label: 'Subject',
+        field: 'subject',
+        required: true,
+        disabled: false,
+      },
+      severity: {
+        label: 'Severity',
+        field: 'severity',
+        required: true,
+        disabled: false,
+      },
+      status: {
+        label: 'Status',
+        field: 'severity',
+        required: true,
+        disabled: false,
+      },
+      describeTheBug: {
+        label: 'Describe the bug',
+        field: 'describeTheBug',
+        required: false,
+        disabled: false,
+      },
     },
   };
   severityOptions: string[] = ['--Select--', 'Low', 'Medium', 'High']; //- TODO: must come from an API
