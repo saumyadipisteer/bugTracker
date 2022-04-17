@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ReportDetailsComponent implements OnInit {
   @Input() severityOptions: string[];
+  @Input() statusOptions: string[];
   constructor() {}
 
   ngOnInit(): void {}
