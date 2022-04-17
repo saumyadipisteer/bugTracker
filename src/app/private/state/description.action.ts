@@ -6,7 +6,7 @@ export enum descriptionActionType {
   descriptionAdded = '[DESCRIPTION] ADDED',
   descriptionEdited = '[DESCRIPTION] EDITED',
 }
-export const descriptionAction = createAction(
-  descriptionActionType.descriptionAdded,
-  props<{ description: string }>()
+export const subjectAction = createAction(
+  descriptionActionType.subjectAdded,
+  props<{ subject: string }>()
 );
