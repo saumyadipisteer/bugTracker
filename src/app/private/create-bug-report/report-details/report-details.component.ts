@@ -1,5 +1,6 @@
 import {
   AfterViewChecked,
+  AfterViewInit,
   Component,
   ElementRef,
   Input,
@@ -8,6 +9,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -17,13 +19,16 @@ import {
   Subscription,
 } from 'rxjs';
 import { Fields } from '../../interface/common';
+import { subjectAction } from '../../state/description.action';
 
 @Component({
   selector: 'report-details',
   templateUrl: './report-details.component.html',
   styleUrls: ['./report-details.component.scss'],
 })
-export class ReportDetailsComponent implements OnInit, AfterViewChecked, OnDestroy {
+export class ReportDetailsComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   @Input() severityOptions: string[];
   @Input() statusOptions: string[];
   @Input() fields: Fields;
@@ -31,14 +36,14 @@ export class ReportDetailsComponent implements OnInit, AfterViewChecked, OnDestr
   private _subscription: Subscription;
 
   fg: FormGroup;
-  constructor() {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.fg = this.createForm();
   }
 
-  ngAfterViewChecked(): void {
-    const inputField = this.subjectField.nativeElement as HTMLInputElement;
+  ngAfterViewInit(): void {
+    const inputField = this.subjectField?.nativeElement as HTMLInputElement;
     const keyUp$ = fromEvent<any>(inputField, 'keyup').pipe(
       map((event) => event.target.value),
       startWith(''),
@@ -46,13 +51,10 @@ export class ReportDetailsComponent implements OnInit, AfterViewChecked, OnDestr
       distinctUntilChanged()
     );
 
-    this._subscription.add(
-      keyUp$.subscribe(
-        value=>{
-          console.log(value)
-        }
-      )
-    )
+    keyUp$.subscribe((value) => {
+      let subject: string = value;
+      this.store.dispatch(subjectAction({ subject }));
+    });
   }
 
   /**
