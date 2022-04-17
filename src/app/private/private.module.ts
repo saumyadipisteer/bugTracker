@@ -12,7 +12,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
-
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 const primeng = [
   StepsModule,
@@ -21,7 +21,8 @@ const primeng = [
   InputNumberModule,
   CardModule,
   DropdownModule,
-  CalendarModule
+  CalendarModule,
+  InputTextareaModule,
 ];
 
 @NgModule({
@@ -31,10 +32,6 @@ const primeng = [
     CreateBugReportComponent,
     ReportDetailsComponent,
   ],
-  imports: [
-    CommonModule,
-    PrivateRoutingModule,
-    ...primeng,
-  ],
+  imports: [CommonModule, PrivateRoutingModule, ...primeng],
 })
 export class PrivateModule {}
