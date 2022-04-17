@@ -110,8 +110,8 @@ export class ReportDetailsComponent
    * @returns `void`
    */
   onSubmit(): void {
-    this._generateData(this.fg.getRawValue());
-    
+    const description = this._generateData(this.fg.getRawValue());
+    this.store.dispatch(descriptionAction({ description }));
   }
 
   /**
@@ -130,7 +130,7 @@ export class ReportDetailsComponent
       severity: data.severity,
       describeTheBug: data.describeTheBug,
       user: user,
-      timestamp: this.userService.generateTime(),
+      timestamp: this.userService.generateDate(),
     };
   }
 
