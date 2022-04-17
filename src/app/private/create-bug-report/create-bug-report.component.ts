@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WidgetField } from '../interface/common';
 
 @Component({
   selector: 'app-create-bug-report',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-bug-report.component.scss'],
 })
 export class CreateBugReportComponent implements OnInit {
-  field = {
+  fields: WidgetField = {
     details: {
       subject: {
         label: 'Subject',
