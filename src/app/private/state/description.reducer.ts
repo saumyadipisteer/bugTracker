@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { Description } from '../interface/description';
-import { subjectAction } from './description.action';
+import { descriptionAction, subjectAction } from './description.action';
 
 export const initialBugDescriptionValue: Description = {
   subject: null,
@@ -9,9 +9,13 @@ export const initialBugDescriptionValue: Description = {
   describeTheBug: null,
 };
 
-export const subjectReducer = createReducer(
+export const descriptionReducer = createReducer(
   initialBugDescriptionValue,
   on(subjectAction, (state, { subject }) => {
     return { ...state, subject: subject };
+  }),
+  on(descriptionAction, (state, { description }) => {
+    console.log(description)
+    return { ...state, ...description };
   })
 );

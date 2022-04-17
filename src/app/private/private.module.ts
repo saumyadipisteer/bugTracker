@@ -14,7 +14,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { StoreModule } from '@ngrx/store';
-import { subjectReducer } from './state/description.reducer';
+import { descriptionReducer } from './state/description.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const primeng = [
@@ -40,7 +40,7 @@ const primeng = [
     FormsModule,
     ReactiveFormsModule,
     ...primeng,
-    StoreModule.forFeature('subject', subjectReducer),
+    StoreModule.forFeature('description',descriptionReducer),
   ],
 })
 export class PrivateModule {}
