@@ -12,10 +12,10 @@
   <ng-template pTemplate="content">
     <form class="details__form">
       <div class="form__control">
-        <label for="title">Title <span class="invalid">*</span></label>
+        <label for="title">Subject <span class="invalid">*</span></label>
         <input type="text" pInputText />
       </div>
-      <div class="fomr__control-group">
+      <div class="form__control-group">
         <div class="form__control">
           <label for="title">Severity <span class="invalid">*</span></label>
           <p-dropdown
@@ -23,7 +23,22 @@
             [style]="{ width: '280px' }"
           ></p-dropdown>
         </div>
-        
+        <div class="form__control">
+          <label for="title">Status<span class="invalid">*</span></label>
+          <p-dropdown
+            [options]="statusOptions"
+            [style]="{ width: '280px' }"
+          ></p-dropdown>
+        </div>
+      </div>
+      <div class="form__control">
+        <label for="title"
+          >Describe the bug <span class="invalid">*</span></label
+        >
+        <textarea pInputTextarea></textarea>
+      </div>
+      <div class="form__control">
+        <button type="submit" pButton label="Submit"></button>
       </div>
     </form>
   </ng-template>
