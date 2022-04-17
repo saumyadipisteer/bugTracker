@@ -37,4 +37,12 @@ export class ReportDetailsComponent implements OnInit {
     });
     return new FormBuilder().group(control);
   }
+
+  /**
+   * Does things on submitting form value
+   * @returns `void`
+   */
+  onSubmit(): void {
+    console.log(this.fg.getRawValue());
+  }
 }
