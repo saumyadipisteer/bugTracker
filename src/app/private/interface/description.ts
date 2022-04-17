@@ -3,4 +3,6 @@ export interface Description {
   severity: string | '--Select--';
   status: string | '--Select--';
   describeTheBug?: string | null;
+  user?: string;
+  timestamp?: string;
 }

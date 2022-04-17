@@ -16,6 +16,12 @@ import {
   map,
   Subscription,
 } from 'rxjs';
+import { Details, User } from 'src/app/interface/user';
+import { UserService } from 'src/app/services/user.service';
+import {
+  currentUser,
+  isLoggedin,
+} from 'src/app/state/user-state/user.selector';
 import { Fields } from '../../interface/common';
 import { Description } from '../../interface/description';
 import { descriptionAction } from '../../state/description.action';
@@ -37,7 +43,7 @@ export class ReportDetailsComponent
   private _subscription: Subscription = new Subscription();
 
   fg: FormGroup;
-  constructor(private store: Store) {}
+  constructor(private store: Store, private userService: UserService) {}
 
   ngOnInit(): void {
     this.fg = this.createForm();
@@ -104,7 +110,28 @@ export class ReportDetailsComponent
    * @returns `void`
    */
   onSubmit(): void {
-    console.log(this.fg.getRawValue());
+    const description = this._generateData(this.fg.getRawValue());
+    this.store.dispatch(descriptionAction({ description }));
+  }
+
+  /**
+   * Generates final data for the report
+   * @param data `Description`
+   * @returns `Description`
+   */
+  private _generateData(data: Description): Description {
+    let user: string | undefined;
+    this.store.select(currentUser).subscribe((login) => {
+      user = login.username;
+    });
+    return {
+      subject: data.subject,
+      status: data.status,
+      severity: data.severity,
+      describeTheBug: data.describeTheBug,
+      user: user,
+      timestamp: this.userService.generateDate(),
+    };
   }
 
   ngOnDestroy(): void {

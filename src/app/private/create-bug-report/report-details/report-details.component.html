@@ -7,7 +7,7 @@
   }"
 >
   <ng-template pTemplate="header">
-    <h2 class="form__heading-text">Bug description</h2>
+    <h2 class="form__heading-text">Report Details</h2>
   </ng-template>
   <ng-template pTemplate="content">
     <form [formGroup]="fg" class="details__form" (ngSubmit)="onSubmit()">
@@ -20,7 +20,7 @@
           <label for="title">Severity <span class="invalid">*</span></label>
           <p-dropdown
             [options]="severityOptions"
-            [style]="{ width: '280px' }"
+            [style]="{ width: '50%', minWidth:'272px' }"
             formControlName="severity"
           ></p-dropdown>
         </div>
@@ -29,7 +29,7 @@
           <p-dropdown
             (onChange)="updateDescriptionStore($event.value)"
             [options]="statusOptions"
-            [style]="{ width: '280px' }"
+            [style]="{ width: '50%', minWidth:'272px' }"
             formControlName="status"
           ></p-dropdown>
         </div>
@@ -41,7 +41,7 @@
         <textarea pInputTextarea formControlName="describeTheBug"></textarea>
       </div>
       <div class="form__control">
-        <button type="submit" pButton label="Submit"></button>
+        <button type="submit" pButton label="Submit" class="submit__btn"></button>
       </div>
     </form>
   </ng-template>
