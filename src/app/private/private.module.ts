@@ -16,6 +16,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { StoreModule } from '@ngrx/store';
 import { descriptionReducer } from './state/description.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecipeMessageComponent } from './recipe-message/recipe-message.component';
 
 const primeng = [
   StepsModule,
@@ -33,6 +34,7 @@ const primeng = [
     PrivateComponent,
     CreateBugReportComponent,
     ReportDetailsComponent,
+    RecipeMessageComponent
   ],
   imports: [
     CommonModule,
