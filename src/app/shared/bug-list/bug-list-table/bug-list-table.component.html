@@ -11,19 +11,19 @@
   </ng-template>
   <ng-template let-report let-rowIndex="rowIndex" pTemplate="body">
     <tr>
-      <td>{{ rowIndex + 1 }}</td>
+      <td>1</td>
       <td>{{ report?.subject }}</td>
       <td>{{ report?.severity }}</td>
       <td>{{ report?.user }}</td>
       <td>{{ report?.createdOn }}</td>
       <td>
-        <!-- <button
+        <button
           pButton
           icon="pi pi-eye"
           class="p-button-rounded p-button-secondary p-button-text"
           pTooltip="View ingredients"
-          (click)="viewIngredients(recipe?.ingredients)"
-        ></button> -->
+
+        ></button>
       </td>
     </tr>
   </ng-template>

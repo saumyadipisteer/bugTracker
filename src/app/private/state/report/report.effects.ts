@@ -11,6 +11,7 @@ export class ReportsEffect {
       this.action$.pipe(
         ofType(reportActionType.addReport),
         tap((action) => {
+          console.log(action)
           const reports: Report[] = JSON.parse(
             localStorage.getItem('reports') || '[]'
           );

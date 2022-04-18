@@ -26,6 +26,7 @@ export class BugListTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.reportService.getReports().subscribe((reports) => {
+      console.log(reports)
       this.reports = reports;
     });
   }

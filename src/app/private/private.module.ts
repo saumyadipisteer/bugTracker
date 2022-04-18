@@ -17,6 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { descriptionReducer } from './state/description/description.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeMessageComponent } from './recipe-message/recipe-message.component';
+import { reportReducer } from './state/report/report.reduce';
 
 const primeng = [
   StepsModule,
@@ -43,6 +44,7 @@ const primeng = [
     ReactiveFormsModule,
     ...primeng,
     StoreModule.forFeature('description',descriptionReducer),
+    // StoreModule.forFeature('report',reportReducer)
   ],
 })
 export class PrivateModule {}

@@ -22,6 +22,7 @@ export class ReportService {
    */
   setReports(data: Report[]): void {
     this.reportSubject$.next(data);
+    
     localStorage.setItem('reports', JSON.stringify(data));
   }
 

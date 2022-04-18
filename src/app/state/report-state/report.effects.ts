@@ -14,9 +14,10 @@ export class ReportsEffect {
           const reports: Report[] = JSON.parse(
             localStorage.getItem('reports') || '[]'
           );
-          //localStorage.removeItem('reports');
-
-          
+          localStorage.setItem(
+            'reports',
+            JSON.stringify([...reports, ...action['report']])
+          );
         })
       ),
     { dispatch: false }
