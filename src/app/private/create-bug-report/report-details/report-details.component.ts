@@ -8,6 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import {
   debounceTime,
@@ -46,7 +47,7 @@ export class ReportDetailsComponent
   private _subscription: Subscription = new Subscription();
 
   fg: FormGroup;
-  constructor(private store: Store, private userService: UserService) {}
+  constructor(private store: Store, private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.fg = this.createForm();
@@ -57,7 +58,6 @@ export class ReportDetailsComponent
 
   ngAfterViewInit(): void {
     this._updateSubjectStore();
-    //this._updateDescriptionStore();
   }
 
   /**
@@ -117,8 +117,10 @@ export class ReportDetailsComponent
     const report = [description];
     this.store.dispatch(descriptionAction({ description }));
     this.store.dispatch(addReport({ report }));
-    
+    if(!this.fg.invalid){
     this._resetForm();
+    this.router.navigate(['bugList'])
+    }
   }
 
   /**
