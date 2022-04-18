@@ -1,20 +1,21 @@
-.severity{
-    border: 1px solid #999;
+.severity {
+  border: 1px solid #999;
 }
 
-.low{
-    border: 1px solid rgb(7, 148, 12);
-    background-color: rgb(7, 148, 12);
-    color: #fff;
+@mixin setColor($general, $text) {
+  border: 1px solid $general;
+  background-color: $general;
+  color: $text;
 }
 
-.medium{
-    border: 1px solid rgb(217, 220, 13);
-    background-color: rgb(217, 220, 13);
-    color: black;
+.low {
+  @include setColor(rgb(7, 148, 12), #fff);
 }
 
-.high{
-    border: 1px solid rgb(220, 141, 13);
-    color: #fff;
+.medium {
+  @include setColor(rgb(217, 220, 13), #000);
+}
+
+.high {
+  @include setColor(rgb(220, 148, 13), #fff);
 }
