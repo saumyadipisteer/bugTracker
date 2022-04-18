@@ -36,8 +36,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './state/user-state/user.effect';
-import { ingredientReducer } from './state/report-state/report.reduce';
-import { IngredientsEffect } from './state/report-state/report.effects';
+import { reportReducer } from './state/report-state/report.reduce';
+import { ReportsEffect } from './state/report-state/report.effects';
 import { detailsReducer } from './state/recipe-details-state/recipe-details.reducer';
 import { SharedModule } from './shared/shared.module';
 
@@ -77,14 +77,14 @@ const primengModules = [
     StoreModule.forRoot({
       count: counterReducer,
       login: userReducer,
-      ingredients: ingredientReducer,
+      reports: reportReducer,
       details: detailsReducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([AuthEffects, IngredientsEffect]),
+    EffectsModule.forRoot([AuthEffects, ReportsEffect]),
     HttpClientModule,
     BrowserAnimationsModule,
     HttpClientModule,
