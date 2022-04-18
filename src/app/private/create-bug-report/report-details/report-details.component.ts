@@ -26,6 +26,7 @@ import {
 import { Fields } from '../../interface/common';
 import { Description } from '../../interface/description';
 import { descriptionAction } from '../../state/description/description.action';
+import { initialBugDescriptionValue } from '../../state/description/description.reducer';
 import { descriptionSelector } from '../../state/description/description.selector';
 import { addReport } from '../../state/report/report.action';
 
@@ -112,10 +113,22 @@ export class ReportDetailsComponent
    * @returns `void`
    */
   onSubmit(): void {
+    this.fg.markAllAsTouched();
     const description = this._generateData(this.fg.getRawValue());
     const report = [description];
     this.store.dispatch(descriptionAction({ description }));
     this.store.dispatch(addReport({ report }));
+    this._resetForm();
+  }
+
+  /**
+   * Resets form and store
+   * @returns `void`
+   */
+  private _resetForm():void {
+    this.fg.reset();
+    const description = initialBugDescriptionValue;
+    this.store.dispatch(descriptionAction({ description }));
   }
 
   /**
