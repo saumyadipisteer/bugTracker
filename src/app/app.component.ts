@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Ingredient } from './interface/report';
+import { Report } from './interface/report';
 import { RecipeService } from './services/description.service';
-import { addIngredient } from './state/report-state/report.action';
+import { addReport } from './state/report-state/report.action';
 import { userLogin } from './state/user-state/user.action';
 
 @Component({
