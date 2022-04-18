@@ -8,42 +8,42 @@ import { ReportService } from './report.service';
   providedIn: 'root',
 })
 export class RecipeService {
-  private recipes: Recipe[] = [];
-  private recipeSubject$: BehaviorSubject<Recipe[]> = new BehaviorSubject<
-    Recipe[]
+  private reports: Report[] = [];
+  private reportSubject$: BehaviorSubject<Report[]> = new BehaviorSubject<
+    Report[]
   >([
     {
-      name: '',
-      author: '',
-      url: '',
-      username: '',
+      subject: '',
+      severity: '',
+      status: '',
+      describeTheBug: '',
+      user: '',
       createdOn: '',
-      report: [],
     },
   ]);
 
-  getRecipe$ = this.recipeSubject$.asObservable();
+  getRecipe$ = this.reportSubject$.asObservable();
 
   constructor(private reportService: ReportService) {}
 
   /**
-   * Initializes recipes to the subject
+   * Initializes reports to the subject
    */
   initializeRecipes(): void {
-    this.recipeSubject$.next(
-      JSON.parse(localStorage.getItem('recipes') || '[]')
+    this.reportSubject$.next(
+      JSON.parse(localStorage.getItem('reports') || '[]')
     );
   }
 
-  postRecipes(recipe: Recipe) {
-    // if localstorage already has existing recipes then assign it recipes array
-    if (JSON.parse(localStorage.getItem('recipes') || '[]').length) {
-      this.recipes = JSON.parse(localStorage.getItem('recipes') || '[]');
+  postRecipes(report: Report) {
+    // if localstorage already has existing reports then assign it reports array
+    if (JSON.parse(localStorage.getItem('reports') || '[]').length) {
+      this.reports = JSON.parse(localStorage.getItem('reports') || '[]');
     }
-    // push new recipe
-    this.recipes.push(recipe);
-    this.recipeSubject$.next(this.recipes);
-    localStorage.setItem('recipes', JSON.stringify(this.recipes));
+    // push new report
+    this.reports.push(report);
+    this.reportSubject$.next(this.reports);
+    localStorage.setItem('reports', JSON.stringify(this.reports));
     localStorage.removeItem('reports');
 
     this.reportService.reportSubject$.next([]);
