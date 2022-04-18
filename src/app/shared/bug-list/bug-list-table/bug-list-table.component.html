@@ -1,4 +1,9 @@
-<p-table [value]="reports">
+<p-table
+  [value]="reports"
+  [paginator]="true"
+  [rows]="5"
+  [ngStyle]="{ height: '230px' }"
+>
   <ng-template pTemplate="header">
     <tr>
       <th>Sr. No.</th>
@@ -33,10 +38,20 @@
       <td>
         <button
           pButton
-          icon="pi pi-eye"
-          class="p-button-rounded p-button-secondary p-button-text"
-          pTooltip="View ingredients"
+          icon="pi pi-ellipsis-v"
+          class="p-button-rounded p-button-text"
+          (click)="op.toggle($event)"
         ></button>
+        <p-overlayPanel #op [style]="{ width: '150px' }">
+          <ul class="overlay__menu">
+            <li class="overlay__menu-item">
+              <a class="overlay__menu-item--link" href="">View</a>
+            </li>
+            <li class="overlay__menu-item">
+              <a href="" class="overlay__menu-item--link">Update</a>
+            </li>
+          </ul>
+        </p-overlayPanel>
       </td>
     </tr>
   </ng-template>
