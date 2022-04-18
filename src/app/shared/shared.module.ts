@@ -7,8 +7,14 @@ import { SharedComponent } from './shared.component';
 import { BugListComponent } from './bug-list/bug-list.component';
 import { BugListTableComponent } from './bug-list/bug-list-table/bug-list-table.component';
 import { CardModule } from 'primeng/card';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
-const primengModules = [TableModule, ButtonModule, CardModule];
+const primengModules = [
+  TableModule,
+  ButtonModule,
+  CardModule,
+  OverlayPanelModule,
+];
 
 @NgModule({
   declarations: [SharedComponent, BugListComponent, BugListTableComponent],
