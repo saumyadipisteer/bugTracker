@@ -1,29 +1,29 @@
-<p-table [value]="recipes">
+<p-table [value]="reports">
   <ng-template pTemplate="header">
     <tr>
       <th>Sr. No.</th>
-      <th>Name</th>
+      <th>Subject</th>
       <th>Severity</th>
       <th>Reported By</th>
       <th>Posted On</th>
       <th>Actions</th>
     </tr>
   </ng-template>
-  <ng-template let-recipe let-rowIndex="rowIndex" pTemplate="body">
+  <ng-template let-report let-rowIndex="rowIndex" pTemplate="body">
     <tr>
-      <td>{{ rowIndex + 1 }}</td>
-      <td>{{ recipe?.name }}</td>
-      <td>{{ recipe?.author }}</td>
-      <td>{{ recipe?.username }}</td>
-      <td>{{ recipe?.createdOn }}</td>
+      <td>1</td>
+      <td>{{ report?.subject }}</td>
+      <td>{{ report?.severity }}</td>
+      <td>{{ report?.user }}</td>
+      <td>{{ report?.createdOn }}</td>
       <td>
-        <!-- <button
+        <button
           pButton
           icon="pi pi-eye"
           class="p-button-rounded p-button-secondary p-button-text"
           pTooltip="View ingredients"
-          (click)="viewIngredients(recipe?.ingredients)"
-        ></button> -->
+
+        ></button>
       </td>
     </tr>
   </ng-template>

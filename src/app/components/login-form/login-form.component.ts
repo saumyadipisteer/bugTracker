@@ -8,7 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { MessageService } from 'primeng/api';
-import { Fields } from 'src/app/interface/ingredient';
+import { Fields } from 'src/app/interface/report';
 import { UserService } from 'src/app/services/user.service';
 import { userLogin } from 'src/app/state/user-state/user.action';
 

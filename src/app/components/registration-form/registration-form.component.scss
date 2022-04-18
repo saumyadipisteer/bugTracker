@@ -1,47 +1,44 @@
 .recipe__login {
-    width: 40vw;
-    background-color: #fff;
+  width: 40vw;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 5px 11px;
+  box-shadow: 0px 1px 7px 1px rgb(226, 224, 224);
+  margin: 0 auto;
+
+  &-heading {
+    //background-color: bisque;
     border-radius: 6px;
-    padding: 5px 11px;
-    box-shadow: 0px 1px 7px 1px rgb(226, 224, 224);
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translateY(-50%);
-  
-    &-heading {
-      //background-color: bisque;
-      border-radius: 6px;
-      height: 10%;
-      margin: 7.5px 15px;
-      color: rgb(103, 224, 183);
-  
-      &--text {
-        text-align: center;
-      }
-    }
-    
-    &-button {
-      margin: 14px 0px;
+    height: 10%;
+    margin: 7.5px 15px;
+    color: rgb(103, 224, 183);
+
+    &--text {
+      text-align: center;
     }
   }
-  
-  .form__group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 4px 8px;
-  
-    & > label {
-      color: #555;
-    }
-  
-    &:last-child {
-      font-weight: 600;
-    }
+
+  &-button {
+    margin: 14px 0px;
   }
-  
-  .dot-for-style{
-      color: #00ced1;
-      font-size: 35px;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 4px 8px;
+
+  & > label {
+    color: #555;
   }
+
+  &:last-child {
+    font-weight: 600;
+  }
+}
+
+.dot-for-style {
+  color: #00ced1;
+  font-size: 35px;
+}

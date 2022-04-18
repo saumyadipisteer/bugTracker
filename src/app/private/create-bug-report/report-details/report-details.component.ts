@@ -16,6 +16,7 @@ import {
   map,
   Subscription,
 } from 'rxjs';
+import { Report } from 'src/app/interface/report';
 import { Details, User } from 'src/app/interface/user';
 import { UserService } from 'src/app/services/user.service';
 import {
@@ -24,8 +25,10 @@ import {
 } from 'src/app/state/user-state/user.selector';
 import { Fields } from '../../interface/common';
 import { Description } from '../../interface/description';
-import { descriptionAction } from '../../state/description.action';
-import { descriptionSelector } from '../../state/description.selector';
+import { descriptionAction } from '../../state/description/description.action';
+import { initialBugDescriptionValue } from '../../state/description/description.reducer';
+import { descriptionSelector } from '../../state/description/description.selector';
+import { addReport } from '../../state/report/report.action';
 
 @Component({
   selector: 'report-details',
@@ -110,7 +113,21 @@ export class ReportDetailsComponent
    * @returns `void`
    */
   onSubmit(): void {
+    this.fg.markAllAsTouched();
     const description = this._generateData(this.fg.getRawValue());
+    const report = [description];
+    this.store.dispatch(descriptionAction({ description }));
+    this.store.dispatch(addReport({ report }));
+    this._resetForm();
+  }
+
+  /**
+   * Resets form and store
+   * @returns `void`
+   */
+  private _resetForm():void {
+    this.fg.reset();
+    const description = initialBugDescriptionValue;
     this.store.dispatch(descriptionAction({ description }));
   }
 
@@ -130,7 +147,7 @@ export class ReportDetailsComponent
       severity: data.severity,
       describeTheBug: data.describeTheBug,
       user: user,
-      timestamp: this.userService.generateDate(),
+      createdOn: this.userService.generateDate(),
     };
   }
 

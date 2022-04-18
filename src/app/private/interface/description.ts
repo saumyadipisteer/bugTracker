@@ -4,5 +4,5 @@ export interface Description {
   status: string | '--Select--';
   describeTheBug?: string | null;
   user?: string;
-  timestamp?: string;
+  createdOn?: string;
 }
