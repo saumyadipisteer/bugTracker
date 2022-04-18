@@ -16,6 +16,7 @@ import {
   map,
   Subscription,
 } from 'rxjs';
+import { Report } from 'src/app/interface/report';
 import { Details, User } from 'src/app/interface/user';
 import { UserService } from 'src/app/services/user.service';
 import {
@@ -25,7 +26,8 @@ import {
 import { Fields } from '../../interface/common';
 import { Description } from '../../interface/description';
 import { descriptionAction } from '../../state/description/description.action';
-import { descriptionSelector } from '../../state/description/description.selector'; 
+import { descriptionSelector } from '../../state/description/description.selector';
+import { addReport } from '../../state/report/report.action';
 
 @Component({
   selector: 'report-details',
@@ -111,8 +113,9 @@ export class ReportDetailsComponent
    */
   onSubmit(): void {
     const description = this._generateData(this.fg.getRawValue());
+    const report = [description];
     this.store.dispatch(descriptionAction({ description }));
-
+    this.store.dispatch(addReport({ report }));
   }
 
   /**
@@ -131,7 +134,7 @@ export class ReportDetailsComponent
       severity: data.severity,
       describeTheBug: data.describeTheBug,
       user: user,
-      timestamp: this.userService.generateDate(),
+      createdOn: this.userService.generateDate(),
     };
   }
 

@@ -1,30 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/interface/user';
-import { RecipeService } from 'src/app/services/description.service';
 import { ConfirmationService } from 'primeng/api';
-import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import {
+  DialogService,
+  DynamicDialogConfig,
+  DynamicDialogRef,
+} from 'primeng/dynamicdialog';
 // import { IngredientListComponent } from '../../ingredient/ingredient-list/ingredient-list.component';
 import { ReportService } from 'src/app/services/report.service';
+import { Report } from 'src/app/interface/report';
 
 @Component({
   selector: 'bug-list-table',
   templateUrl: './bug-list-table.component.html',
   styleUrls: ['./bug-list-table.component.scss'],
-  providers: [DialogService, DynamicDialogConfig ],
+  providers: [DialogService, DynamicDialogConfig],
 })
 export class BugListTableComponent implements OnInit {
-  recipes: Recipe[];
+  reports: Report[];
   ref: DynamicDialogRef;
   constructor(
-    private recipeService: RecipeService,
     private dialogService: DialogService,
     private reportService: ReportService
   ) {}
 
   ngOnInit(): void {
-    // this.recipeService.getRecipe$.subscribe((recipes) => {
-    //   this.recipes = recipes;
-    // });
+    this.reportService.getReports().subscribe((reports) => {
+      this.reports = reports;
+    });
   }
 
   // viewIngredients(ingredients: Ingredient[]) {
