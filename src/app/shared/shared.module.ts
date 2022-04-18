@@ -8,6 +8,9 @@ import { BugListComponent } from './bug-list/bug-list.component';
 import { BugListTableComponent } from './bug-list/bug-list-table/bug-list-table.component';
 import { CardModule } from 'primeng/card';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { BugReportPopupComponent } from './bug-list/bug-report-popup/bug-report-popup.component';
+import { StoreModule } from '@ngrx/store';
+import { descriptionReducer } from '../private/state/description/description.reducer';
 
 const primengModules = [
   TableModule,
@@ -17,7 +20,17 @@ const primengModules = [
 ];
 
 @NgModule({
-  declarations: [SharedComponent, BugListComponent, BugListTableComponent],
-  imports: [CommonModule, SharedRoutingModule, ...primengModules],
+  declarations: [
+    SharedComponent,
+    BugListComponent,
+    BugListTableComponent,
+    BugReportPopupComponent,
+  ],
+  imports: [
+    CommonModule,
+    SharedRoutingModule,
+    ...primengModules,
+    StoreModule.forFeature('description', descriptionReducer),
+  ],
 })
 export class SharedModule {}

@@ -77,7 +77,7 @@ const primengModules = [
     StoreModule.forRoot({
       count: counterReducer,
       login: userReducer,
-      reports: reportReducer,
+      description: reportReducer,
       details: detailsReducer
     }),
     StoreDevtoolsModule.instrument({

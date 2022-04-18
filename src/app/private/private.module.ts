@@ -18,6 +18,7 @@ import { descriptionReducer } from './state/description/description.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeMessageComponent } from './recipe-message/recipe-message.component';
 import { reportReducer } from './state/report/report.reduce';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 const primeng = [
   StepsModule,
@@ -28,6 +29,7 @@ const primeng = [
   DropdownModule,
   CalendarModule,
   InputTextareaModule,
+  DynamicDialogModule
 ];
 
 @NgModule({

@@ -44,11 +44,11 @@
         ></button>
         <p-overlayPanel #op [style]="{ width: '150px' }">
           <ul class="overlay__menu">
-            <li class="overlay__menu-item">
-              <a class="overlay__menu-item--link" href="">View</a>
+            <li class="overlay__menu-item" (click)="viewBugReport(report)">
+              <a class="overlay__menu-item--link" href="javascript:void(0)">View</a>
             </li>
             <li class="overlay__menu-item">
-              <a href="" class="overlay__menu-item--link">Update</a>
+              <a href="javascript:void(0)" class="overlay__menu-item--link">Update</a>
             </li>
           </ul>
         </p-overlayPanel>

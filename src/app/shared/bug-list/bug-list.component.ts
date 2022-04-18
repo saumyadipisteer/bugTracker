@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bug-list.component.scss']
 })
 export class BugListComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -10,6 +10,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -35,6 +36,7 @@ import { addReport } from '../../state/report/report.action';
   selector: 'report-details',
   templateUrl: './report-details.component.html',
   styleUrls: ['./report-details.component.scss'],
+  providers: [],
 })
 export class ReportDetailsComponent
   implements OnInit, AfterViewInit, OnDestroy
@@ -42,18 +44,23 @@ export class ReportDetailsComponent
   @Input() severityOptions: string[];
   @Input() statusOptions: string[];
   @Input() fields: Fields;
+  @Input() description: Description;
   @ViewChild('subject') subjectField: ElementRef;
   @ViewChild('status') statusField: ElementRef;
   private _subscription: Subscription = new Subscription();
 
   fg: FormGroup;
-  constructor(private store: Store, private userService: UserService, private router: Router) {}
+  constructor(
+    private store: Store,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.fg = this.createForm();
-    this.store.select(descriptionSelector).subscribe((description) => {
-      this.fg.patchValue(description);
-    });
+    if (this.description) {
+      this.fg.patchValue(this.description);
+    }
   }
 
   ngAfterViewInit(): void {
@@ -117,9 +124,9 @@ export class ReportDetailsComponent
     const report = [description];
     this.store.dispatch(descriptionAction({ description }));
     this.store.dispatch(addReport({ report }));
-    if(!this.fg.invalid){
-    this._resetForm();
-    this.router.navigate(['bugList'])
+    if (!this.fg.invalid) {
+      this._resetForm();
+      this.router.navigate(['bugList']);
     }
   }
 
@@ -127,7 +134,7 @@ export class ReportDetailsComponent
    * Resets form and store
    * @returns `void`
    */
-  private _resetForm():void {
+  private _resetForm(): void {
     this.fg.reset();
     const description = initialBugDescriptionValue;
     this.store.dispatch(descriptionAction({ description }));
