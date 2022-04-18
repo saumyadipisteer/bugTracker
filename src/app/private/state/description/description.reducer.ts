@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Description } from '../interface/description';
+import { Description } from '../../interface/description';
 import { descriptionAction, subjectAction } from './description.action';
 
 export const initialBugDescriptionValue: Description = {

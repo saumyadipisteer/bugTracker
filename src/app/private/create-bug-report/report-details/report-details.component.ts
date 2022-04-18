@@ -24,8 +24,8 @@ import {
 } from 'src/app/state/user-state/user.selector';
 import { Fields } from '../../interface/common';
 import { Description } from '../../interface/description';
-import { descriptionAction } from '../../state/description.action';
-import { descriptionSelector } from '../../state/description.selector';
+import { descriptionAction } from '../../state/description/description.action';
+import { descriptionSelector } from '../../state/description/description.selector'; 
 
 @Component({
   selector: 'report-details',
@@ -112,6 +112,7 @@ export class ReportDetailsComponent
   onSubmit(): void {
     const description = this._generateData(this.fg.getRawValue());
     this.store.dispatch(descriptionAction({ description }));
+
   }
 
   /**

@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Description } from '../interface/description';
+import { Description } from '../../interface/description';
 
 export enum descriptionActionType {
   subjectAdded = '[SUBJECT] ADDED',
