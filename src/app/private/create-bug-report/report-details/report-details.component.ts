@@ -90,8 +90,7 @@ export class ReportDetailsComponent
   }
 
   /**
-   * @description Creates a form with null value and required validators by default depending upon
-   * the data
+   * @description Creates a form with null value and required validators by default
    * @param none
    * @returns `FormGroup`
    */
@@ -118,6 +117,7 @@ export class ReportDetailsComponent
     const report = [description];
     this.store.dispatch(descriptionAction({ description }));
     this.store.dispatch(addReport({ report }));
+    
     this._resetForm();
   }
 
