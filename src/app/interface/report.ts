@@ -1,7 +1,10 @@
-export interface Ingredient {
-    name: string | null,
-    quantity: number,
-    unit: string | null,
+export interface Report {
+  subject: string | null;
+  severity: string | '--Select--';
+  status: string | '--Select--';
+  describeTheBug?: string | null;
+  user?: string;
+  timestamp?: string;
 }
 
 export interface Unit {

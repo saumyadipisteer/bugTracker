@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/interface/user';
-import { RecipeService } from 'src/app/services/recipe.service';
+import { RecipeService } from 'src/app/services/description.service';
 import { ConfirmationService } from 'primeng/api';
 import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 // import { IngredientListComponent } from '../../ingredient/ingredient-list/ingredient-list.component';
-import { IngredientService } from 'src/app/services/ingredient.service';
-import { Ingredient } from 'src/app/interface/ingredient';
+import { ReportService } from 'src/app/services/report.service';
 
 @Component({
   selector: 'bug-list-table',
@@ -19,13 +18,13 @@ export class BugListTableComponent implements OnInit {
   constructor(
     private recipeService: RecipeService,
     private dialogService: DialogService,
-    private ingredientService: IngredientService
+    private reportService: ReportService
   ) {}
 
   ngOnInit(): void {
-    this.recipeService.getRecipe$.subscribe((recipes) => {
-      this.recipes = recipes;
-    });
+    // this.recipeService.getRecipe$.subscribe((recipes) => {
+    //   this.recipes = recipes;
+    // });
   }
 
   // viewIngredients(ingredients: Ingredient[]) {

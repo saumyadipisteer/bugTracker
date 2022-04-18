@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Recipe } from '../interface/user';
-import { Ingredient } from '../interface/ingredient';
-import { IngredientService } from './ingredient.service';
+import { Report } from '../interface/report';
+import { ReportService } from './report.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,13 +18,13 @@ export class RecipeService {
       url: '',
       username: '',
       createdOn: '',
-      ingredients: [],
+      report: [],
     },
   ]);
 
   getRecipe$ = this.recipeSubject$.asObservable();
 
-  constructor(private ingredientService: IngredientService) {}
+  constructor(private reportService: ReportService) {}
 
   /**
    * Initializes recipes to the subject
@@ -44,8 +44,8 @@ export class RecipeService {
     this.recipes.push(recipe);
     this.recipeSubject$.next(this.recipes);
     localStorage.setItem('recipes', JSON.stringify(this.recipes));
-    localStorage.removeItem('ingredients');
+    localStorage.removeItem('reports');
 
-    this.ingredientService.ingredientSubject$.next([]);
+    this.reportService.reportSubject$.next([]);
   }
 }

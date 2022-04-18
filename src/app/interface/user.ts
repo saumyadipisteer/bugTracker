@@ -1,4 +1,4 @@
-import { Ingredient } from './ingredient';
+import { Report } from './report';
 
 export interface Users {
   [key: string]: User[];
@@ -11,8 +11,6 @@ export interface User {
   recipes: Recipe[];
 }
 
-
-
 export interface UserCredentials {
   id?: string;
   username: string | undefined;
@@ -23,10 +21,10 @@ export interface UserCredentials {
 export interface Recipe {
   name: string;
   url: string;
-  author: string,
-  username: string,
-  createdOn: string,
-  ingredients: Ingredient[];
+  author: string;
+  username: string;
+  createdOn: string;
+  report: Report[];
 }
 
 export interface Details {
@@ -37,5 +35,5 @@ export interface Details {
 
 export interface EditableData {
   index: number;
-  data: Ingredient;
+  data: Report;
 }

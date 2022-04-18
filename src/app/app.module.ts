@@ -36,8 +36,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './state/user-state/user.effect';
-import { ingredientReducer } from './state/ingredient-state/ingredient.reduce';
-import { IngredientsEffect } from './state/ingredient-state/ingredient.effects';
+import { ingredientReducer } from './state/report-state/report.reduce';
+import { IngredientsEffect } from './state/report-state/report.effects';
 import { detailsReducer } from './state/recipe-details-state/recipe-details.reducer';
 import { SharedModule } from './shared/shared.module';
 

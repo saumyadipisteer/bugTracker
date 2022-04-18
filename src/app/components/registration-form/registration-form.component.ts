@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Fields } from 'src/app/interface/ingredient';
+import { Fields } from 'src/app/interface/report';
 import { UserCredentials } from 'src/app/interface/user';
 import { UserService } from 'src/app/services/user.service';
 
